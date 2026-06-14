@@ -120,7 +120,6 @@ def main():
             break
         finally:
             bot.show_stats()
-            print("\n¡Adiós!")
 
 
 if __name__ == "__main__":
