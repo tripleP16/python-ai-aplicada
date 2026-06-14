@@ -21,7 +21,7 @@ def call_ai(question: str) -> str:
                 }
             ],
             max_tokens=500,
-            temperature=0.7
+            temperature=1.6
         )
         return response.choices[0].message.content
     except AuthenticationError:
@@ -39,4 +39,4 @@ def call_ai(question: str) -> str:
 
 
 if __name__ == "__main__":
-    print(call_ai("¿cuál es la capital de Venezuela?"))
+    print(call_ai("Dame un titulo para un video de python"))
