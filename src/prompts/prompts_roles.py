@@ -53,6 +53,63 @@ def show_roles():
 
     print(f"Respuesta del System: {response_2.choices[0].message.content}\n")
 
+    print("="*50)
+    print("Rol: Assistant")
+    print("="*50)
+
+    response_3 = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+
+            {
+                "role": "system",
+                "content": """"
+                Eres un clasificador de sentimientos
+                Respondes solo con : Positivo, negativo o neutro
+                """
+            },
+            {
+                "role": "user",
+                "content": "Me encanta el helado"
+            },
+            {
+                "role": "assistant",
+                "content": """"POSITIVO
+                """
+            },
+            {
+                "role": "user",
+                "content": "Odio los ratones"
+            },
+
+            {
+                "role": "assistant",
+                "content": """NEGATIVO
+                """
+            },
+
+
+            {
+                "role": "user",
+                "content": "El dia de hoy esta neutral"
+            },
+
+            {
+                "role": "assistant",
+                "content": """NEUTRO
+                """
+            },
+
+            {
+                "role": "user",
+                "content": "Odio los martes"
+            },
+            
+        ]
+    )
+
+    print(f"Sentimiento: {response_3.choices[0].message.content}\n")
+
 
 if __name__ == "__main__":
     show_roles()
